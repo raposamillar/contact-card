@@ -1,6 +1,7 @@
 import { fetchCards } from './cards';
 import { toggleForm } from './form';
 import { clearForm } from './form';
+import { deleteDB } from './database';
 
 // Import modules
 import './form';
@@ -62,3 +63,24 @@ window.addEventListener('load', function () {
  // Reload the DOM
  fetchCards();
  });
+
+ deleteCard = (e) => {
+  // Delete the card
+  deleteDb();
+  // Reload the DOM
+  fetchCards();
+  };
+
+  // Grabs the id from the button element attached to the contact card.
+let id = parseInt(e.id);
+// Delete the card
+deleteDb(id);
+
+window.deleteCard = (e) => {
+  // Grabs the id from the button element attached to the contact card.
+  let id = parseInt(e.id);
+  // Delete the card
+  deleteDb(id);
+  // Reload the DOM
+  fetchCards();
+};
